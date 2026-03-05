@@ -816,6 +816,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
 .footer a:hover{
   border-bottom-color: var(--hotpink);
 }
+.footer__small a{
+  font-weight:900;
+  color:var(--hotpink);
+  text-decoration:none;
+}
+
+.footer__small a:hover{
+  text-decoration:underline;
+}
 
 /* responsive */
 @media (max-width: 980px){
