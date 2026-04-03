@@ -1,4 +1,3 @@
-/* style.css */
 :root{
   --bg0:#0b0a12;
   --ink:#121018;
@@ -32,7 +31,6 @@ body{
   font-family:var(--body);
   line-height:1.45;
 
-  /* base candy chaos */
   background:
     radial-gradient(circle at 15% 20%, rgba(255,255,255,.45) 0 10%, transparent 11%),
     radial-gradient(circle at 75% 25%, rgba(255,255,255,.35) 0 9%, transparent 10%),
@@ -48,7 +46,6 @@ body{
   position:relative;
 }
 
-/* sparkle overlay (CSS-only) */
 body::before{
   content:"";
   position:fixed;
@@ -63,7 +60,6 @@ body::before{
   filter: blur(.1px);
 }
 
-/* links / focus */
 a{ color:inherit; }
 a:focus-visible, button:focus-visible, summary:focus-visible{
   outline:3px solid var(--aqua);
@@ -71,7 +67,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   border-radius:12px;
 }
 
-/* layout */
 .wrap{
   width:min(var(--max), calc(100% - 32px));
   margin-inline:auto;
@@ -90,7 +85,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
 }
 .skip-link:focus{ left:12px; }
 
-/* topbar */
 .topbar{
   position:sticky;
   top:0;
@@ -148,7 +142,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   transform: rotate(-1deg);
 }
 
-/* tiny pill */
+.topbar__links{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
 .pill{
   display:inline-flex;
   align-items:center;
@@ -166,7 +167,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   font-size:.9rem;
 }
 
-/* sections */
 .section{
   padding:56px 0;
 }
@@ -193,7 +193,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   color: rgba(18,16,24,.82);
 }
 
-/* sticker + card look */
 .sticker{
   background: var(--paper);
   border: 4px solid var(--outline);
@@ -216,7 +215,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   border-radius: 38px;
 }
 
-/* HERO */
 .hero{
   padding:48px 0 24px;
 }
@@ -352,7 +350,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   color: rgba(18,16,24,.75);
 }
 
-/* hero art */
 .hero__art{
   padding:18px;
   background:
@@ -453,8 +450,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   font-weight:900;
 }
 
-/* floating shapes */
-/* floating shapes (fixed clip-path artifacts) */
 .float{
   position:absolute;
   width:56px;
@@ -462,7 +457,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   opacity:.98;
 }
 
-/* keep heart as-is (no clip-path polygon artifacts) */
 .float--heart{
   top:58%;
   right:16%;
@@ -475,36 +469,32 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   box-shadow: 0 14px 0 var(--shadow);
 }
 
-/* stars: no border/shadow on the clipped element itself */
 .float--star,
 .float--star2{
   border:0;
   box-shadow:none;
-  background:none; /* background moved to ::after */
+  background:none;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
-/* OUTLINE layer */
 .float--star::before,
 .float--star2::before{
   content:"";
   position:absolute;
-  inset:-4px;                 /* outline thickness */
+  inset:-4px;
   background: var(--outline);
   clip-path: inherit;
 }
 
-/* FILL + SHADOW layer */
 .float--star::after,
 .float--star2::after{
   content:"";
   position:absolute;
   inset:0;
   clip-path: inherit;
-  box-shadow: 0 14px 0 var(--shadow); /* shadow without artifacting */
+  box-shadow: 0 14px 0 var(--shadow);
 }
 
-/* star gradients + placement */
 .float--star{
   top:18%;
   left:10%;
@@ -524,7 +514,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   background: linear-gradient(135deg, var(--mint), var(--aqua));
 }
 
-/* product grid */
 .grid{
   margin-top:16px;
   display:grid;
@@ -605,8 +594,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   display:flex;
   justify-content:center;
 }
+.shop-buttons{
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-/* steps */
 .steps{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
@@ -645,7 +637,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   color: rgba(18,16,24,.72);
 }
 
-/* about */
 .about{
   display:grid;
   grid-template-columns: 1.2fr .8fr;
@@ -686,7 +677,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
 }
 .callout__text{ margin:0; color: rgba(18,16,24,.78); }
 
-/* FAQ */
 .faq{
   display:grid;
   gap:12px;
@@ -716,7 +706,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   color: rgba(18,16,24,.78);
 }
 
-/* contact */
 .contact{
   display:grid;
   grid-template-columns: 1.1fr .9fr;
@@ -791,7 +780,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   font-weight:950;
 }
 
-/* footer */
 .footer{
   padding:26px 0 34px;
   border-top: 3px solid var(--outline);
@@ -821,12 +809,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   color:var(--hotpink);
   text-decoration:none;
 }
-
 .footer__small a:hover{
   text-decoration:underline;
 }
 
-/* responsive */
 @media (max-width: 980px){
   .hero__grid{ grid-template-columns: 1fr; }
   .collage{ min-height: 320px; }
@@ -834,14 +820,27 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   .steps .step{ grid-column: span 6; }
   .about{ grid-template-columns: 1fr; }
   .contact{ grid-template-columns: 1fr; }
+  .topbar__inner{
+    flex-wrap:wrap;
+  }
+  .topbar__links{
+    width:100%;
+    justify-content:center;
+  }
 }
 
 @media (max-width: 560px){
   .topbar__inner{ gap:10px; }
-  .nav{ display:none; } /* keep it clean on tiny screens; sticky header still shows Depop */
+  .nav{ display:none; }
   .grid .card{ grid-column: span 12; }
   .steps .step{ grid-column: span 12; }
   .card__media img{ height:240px; }
   .btn{ width:100%; }
-  .pill--tiny{ display:none; }
+  .topbar__links{
+    width:100%;
+  }
+  .pill--tiny{
+    flex:1 1 100%;
+    justify-content:center;
+  }
 }
